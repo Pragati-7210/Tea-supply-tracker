@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Tea Supply Tracker</title>
+        <link rel="manifest" href="manifest.json">
+        <script>
+                if ("serviceWorker" in navigator) {
+                        navigator.serviceWorker.register("service-worker.js");
+                }
+        </script>
+        <link rel="manifest" href="manifest.json">
+        <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+        <link rel="icon" href="icons/icon-192.png">
+        <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+        <meta name="theme-color" content="#4caf50">
+
+        <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+        <header>
+                <h1>Tea Supply Tracker</h1>
+                <nav>
+                        <button id="btnHome">Home</button>
+                        <button id="btnNew">➕ Create New</button>
+                        <button id="btnHistory">History</button>
+                </nav>
+        </header>
+
+        <!-- HOME / Pending -->
+        <main id="homeSection">
+                <h2>Pending Payments</h2>
+
+                <div id="pendingList" class="list"></div>
+        </main>
+
+        <!-- NEW ENTRY -->
+        <section id="formSection" class="hidden">
+                <h2>New Supply Entry</h2>
+
+                <!-- quick search for existing customer -->
+                <label for="searchCustomer">Search (name / phone / business / address)</label>
+                <input id="searchCustomer" type="search" placeholder="Search existing customer..." autocomplete="off" />
+                <div id="searchResults" class="search-results hidden"></div>
+
+                <form id="entryForm">
+                        <label>Date</label>
+                        <input id="date" type="date" required />
+
+                        <label>Customer Name</label>
+                        <input id="customerName" type="text" required />
+
+                        <label>Phone (10 digits)</label>
+                        <input id="phone" type="tel" maxlength="10" pattern="[0-9]{10}" placeholder="9876543210"
+                                required />
+
+                        <label>Business Name</label>
+                        <input id="business" type="text" />
+
+                        <label>Address</label>
+                        <input id="address" type="text" />
+
+                        <label>Kgs Given</label>
+                        <input id="kgs" type="number" min="1" required />
+
+                        <label>Price Per Kg</label>
+                        <input id="price" type="number" min="1" required />
+
+                        <p id="totalDisplay">Total: ₹0</p>
+
+                        <label>Payment Method</label>
+                        <select id="paymentType">
+                                <option value="none">-- Not specified / Later --</option>
+                                <option value="cash">Cash</option>
+                                <option value="online">Online</option>
+                                <option value="mixed">Mixed</option>
+                        </select>
+
+                        <div id="cashSection" class="hidden">
+                                <label>Cash Paid</label>
+                                <input id="cashPaid" type="number" min="0" value="0" />
+                        </div>
+                        <div id="onlineSection" class="hidden">
+                                <label>Online Paid</label>
+                                <input id="onlinePaid" type="number" min="0" value="0" />
+                        </div>
+
+                        <div class="form-actions">
+                                <button type="submit">Save Entry</button>
+                                <button id="cancelBtn" type="button" class="cancel">Cancel</button>
+                        </div>
+                </form>
+        </section>
+
+        <!-- HISTORY (list of all customers) -->
+        <section id="historySection" class="hidden">
+                <h2>History — Customers</h2>
+                <div id="customersList" class="list"></div>
+                <div id="customerDetails" class="hidden details-panel"></div>
+        </section>
+
+        <template id="pending-template">
+                <div class="pending-card">
+                        <div class="pending-top">
+                                <div class="name"></div>
+                                <div class="remaining"></div>
+                        </div>
+                        <div class="sub"> <span class="phone"></span> • <span class="business"></span> </div>
+                </div>
+        </template>
+
+        <template id="sale-row-template">
+                <div class="sale-row">
+                        <div class="sale-left"><b class="sdate"></b>
+                                <div class="skg"></div>
+                        </div>
+                        <div class="sale-right">
+                                <div>₹<span class="stotal"></span></div>
+                                <div>Paid: <span class="spaid"></span></div>
+                                <div>Remaining: ₹<span class="srem"></span></div>
+                                <div class="sale-actions"></div>
+                        </div>
+                </div>
+        </template>
+<!-- Firebase (compat) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+        <script src="app.js"></script>
+        <script>
+                if ("serviceWorker" in navigator) {
+                        navigator.serviceWorker.register("service-worker.js")
+                                .catch(err => console.error("SW registration failed", err));
+                }
+        </script>
+
+</body>
+
+</html>
