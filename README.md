@@ -2,6 +2,20 @@
 A simple, offline-friendly mobile web app designed to help track tea-supply customers, orders, payments, pending balances, and full customer history.
 This project is made for real small-business use: fast, clean UI, large readable text, and works even without internet.
 
+Project structure
+
+Tea-Supply-Tracker/
+│── index.html
+│── style.css
+│── app.js
+│── manifest.json
+│── service-worker.js
+│── icons/
+│     ├── icon-192.png
+│     └── icon-512.png
+│── README.md
+
+
 📌 Features
 ✔ Offline Support (PWA)
 
