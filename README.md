@@ -63,3 +63,6 @@ tea-supply-tracker/
 ├─ service-worker.js # Enables offline PWA functionality
 ├─ manifest.json     # PWA metadata for install-as-app
 └─ db.js             # IndexedDB management for offline storage
+
+
+made with ♥ for my papa
