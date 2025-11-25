@@ -6,13 +6,13 @@ Built with HTML, CSS, JavaScript, and IndexedDB, it works seamlessly online and 
 
 ⭐ Features
 
-✅ 1. Works Offline (PWA)
+ 1. Works Offline (PWA)
 
 Loads instantly, even without internet
 Can be installed on Android, iOS, and Desktop
 Data is stored safely in IndexedDB (never lost)
 
-✅ 2. Add Supply Entries
+ 2. Add Supply Entries
 
 Customer name & phone number (auto-saved for future use)
 Business name & address
@@ -21,20 +21,20 @@ Auto-calculated total
 Payment type selection
 Mixed payment handling with automatic balance calculation
 
-✅ 3. Smart Customer Autofill
+3. Smart Customer Autofill
 
 Search by name, phone, business, or address
 Existing customer details auto-fill
 No repeated typing required
 
-✅ 4. Pending Payment Tracking
+ 4. Pending Payment Tracking
 
 Automatically calculates total remaining amount
 Multiple orders accumulate
 Shows list of customers who owe money
 Tap a customer to see full payment history
 
-✅ 5. Full Customer History
+ 5. Full Customer History
 
 View every supply entry:
 
@@ -45,13 +45,11 @@ Paid amount
 Remaining balance
 Entries move to History once payment is fully cleared
 
-✅ 6. Contact List Integration (Optional)
+ 6. Contact List Integration 
 
 Auto-reads phone contacts (browser-supported devices only)
 
-✅ 7. Google Login (Optional)
 
-Only for identity sync across devices
 
 📁 Project Structure:
 
